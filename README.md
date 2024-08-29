@@ -1,0 +1,5 @@
+- Pong: local, matchmaking and tournament modes (Django channels)
+- Register, logging and user authentification (Django)
+- Users information database (Django, PostreSQL)
+- Single-page application (Vanilla JS) and CLI (Python curses) frontend
+- Microservices architecture (Docker containers)
