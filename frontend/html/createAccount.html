@@ -1,0 +1,40 @@
+<!-- New account text -->
+<h1 class="display-2 tc-title">NEW &nbsp; ACCOUNT</h1>
+
+<form class="fs-4">
+
+	<!-- Email input -->
+	<div data-mdb-input-init class="form-outline mb-4">
+
+	  <input type="name" id="username" placeholder="User" class="tc-input" required maxlength="20"/>
+	  <label class="form-label" for="username"></label>
+	</div>
+
+	<!-- Password input -->
+	<div data-mdb-input-init class="form-outline mb-4">
+
+	  <input type="password" id="password" placeholder="Password" class="tc-input" required maxlength="20"/>
+	  <label class="form-label" for="password"></label>
+	</div>
+
+	<!-- Password Repeat input -->
+	<div data-mdb-input-init class="form-outline mb-4">
+
+	  <input type="password" id="passwordRepeat" placeholder="Repeat your password" class="tc-input" required maxlength="20"/>
+	  <label class="form-label" for="password"></label>
+	</div>
+
+
+	<!-- Submit button -->	
+	<div class="d-flex flex-column text-center justify-content-center align-items-center text-lg-start mt-4 pt-2">
+
+		<button type="button" id="createAccountButton" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg tc-btn">Create account</button>
+		<div style="padding:1.5rem;"></div>
+		<p class="fs-3 mt-2 pt-1 mb-0 text-center tc-txt">Already have an account?
+			<span class="fw-bold tc-registration" id="backToLogin" role='button'>Log in</span></p>
+	</div>
+
+</form>
+<div>
+	<p class="fs-4 tc-fail" id="failInfoRegister" ></p>
+</div>

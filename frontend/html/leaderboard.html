@@ -1,0 +1,35 @@
+<div class="h-100 d-flex">
+    <div class="col-6 vh-100 d-flex flex-column overflow-hidden">
+        <div class="tc-leaderboard-podium-container p-3">
+            <div class="tc-border tc-background d-flex tc-leaderboard-podium tc-leaderboard-podium_first p-3 align-items-center h-100">
+                ${podium1}
+            </div>
+        </div>
+        <div class="tc-leaderboard-podium-container p-3">
+            <div class="tc-border tc-background d-flex tc-leaderboard-podium tc-leaderboard-podium_second p-3 align-items-center h-100" style="{podium2Style}">
+                ${podium2}
+            </div>
+        </div>
+        <div class="tc-leaderboard-podium-container p-3">
+            <div class="tc-border tc-background d-flex tc-leaderboard-podium tc-leaderboard-podium_third p-3 align-items-center h-100" style="{podium3Style}">
+                ${podium3}
+            </div>
+        </div>
+    </div>
+    <div class="col-6 h-90 tc-leaderboard-table p-3 overflow-hidden">
+        <table class="col-12">
+            <!-- <thead> -->
+                <tr>
+                    <th>#</th>
+                    <th>Player</th>
+                    <th> </th>
+                    <th>Elo</th>
+                    <th>Wins</th>
+                </tr>
+            <!-- </thead> -->
+            <tbody>
+                ${dashboardTable}
+            </tbody>
+        </table>
+    </div>
+</div>

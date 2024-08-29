@@ -1,0 +1,87 @@
+
+<div class="tc-profile-canvas d-flex justify-content-center">
+
+	<div class="d-flex mx-auto my-auto flex-column tc-profile-card tc-background-hyperdark tc-border" id="profileCard">
+		
+
+
+		<div class="w-100 justify-content-between d-flex p-4 tc-profile-header">
+			<div class="d-flex justify-content-center">
+				<div class="h-100 me-3 tc-square-image" style="background-image: url(${imageUrl});"></div>
+				<div class="d-flex text-align-start align-items-center">
+					<div class="text-start ps-3 m-0 tc-profile-username">${userName}</div>
+				</div><!-- position: absolute; -->
+			</div>
+			<div>
+				<button class="btn align-top" id="hideProfile"> CLOSE </button>
+			</div>
+		</div>
+
+		<div class="d-flex flex-grow-1 flex-column align-items-center tc-background-secondary p-4">
+			<div class="row w-100">
+				<div class="w-50 p-3">
+					<div class="p-3 d-flex justify-content-center tc-background-hyperdark tc-profile-card-info-container flex-column" id="profileStats">
+
+						<div class="d-flex w-100">
+							<div class="d-flex flex-column justify-content-center align-items-center tc-profile-card-info col-4">
+								<h1>Rank</h1>
+								<div class="tc-bold">${ranking}</div>
+							</div>
+							<div class="tc-profile-card-info-separator"></div>
+							<div class="d-flex flex-column justify-content-center align-items-center tc-profile-card-info col-4">
+								<h1>Elo</h1>
+								<div class="tc-bold">${elo}</div>
+							</div>
+							<div class="tc-profile-card-info-separator"></div>
+							<div class="d-flex flex-column justify-content-center align-items-center tc-profile-card-info col-4">
+								<h1>Cups</h1>
+								<div class="tc-bold">${tournamentWins} <i class="bi bi-trophy  px-2"></i></div>
+							</div>
+						</div>
+
+						<div class="d-flex w-100 mt-3">
+							<div class="d-flex flex-column justify-content-center align-items-center tc-profile-card-info col-4">
+								<h1>Games played</h1>
+								<div class="tc-bold">${totalMatches}</div>
+							</div>
+							<div class="tc-profile-card-info-separator"></div>
+							<div class="d-flex flex-column justify-content-center align-items-center tc-profile-card-info col-4">
+								<h1>Wins</h1>
+								<div class="tc-bold">${wins}</div>
+							</div>
+							<div class="tc-profile-card-info-separator"></div>
+							<div class="d-flex flex-column justify-content-center align-items-center tc-profile-card-info col-4">
+								<h1>Winrate</h1>
+								<div class="tc-bold">${winrate}%</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="w-50 p-3">
+					<div class="p-3 d-flex tc-background-hyperdark tc-profile-card-info-container">
+						<canvas id="profileEloChart" width="400" height="200"></canvas>
+					</div>
+					
+				</div>
+			</div>
+			<div class="w-100 mt-4">
+				<div class="h1 m-0 p-2 tc-background-hyperdark tc-match-history-title">Last matches</div>
+				<table class="tc-match-history flex-grow-1">
+					<tr>
+						<th style="padding-left: 8px;">Result</th>
+						<th>Elo</th>
+						<th>Game mode</th>
+						<th>Score</th>
+						<th>Opponent</th>
+						<th>Date</th>
+					</tr>
+					<tbody>				
+						${history}
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+</div>

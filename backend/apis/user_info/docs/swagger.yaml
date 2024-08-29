@@ -1,0 +1,272 @@
+openapi: 3.0.0
+info:
+  title: User Information API
+  version: 1.0.0
+paths:
+  /user_info:
+    get:
+      summary: Get user info by username
+      parameters:
+        - name: username
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved user info
+        '400':
+          description: Username is required
+        '401':
+          description: Not registered
+  /my_user_info:
+    get:
+      summary: Get info of the authenticated user
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successfully retrieved user info
+        '401':
+          description: Not registered
+  /all_users_info:
+    get:
+      summary: Get info of all users
+      responses:
+        '200':
+          description: Successfully retrieved all users info
+        '404':
+          description: No users found
+  /create_user_info:
+    post:
+      summary: Create new user info
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                alias:
+                  type: string
+                profile_photo:
+                  type: string
+      responses:
+        '200':
+          description: New user info created
+        '400':
+          description: Username or alias already taken / Invalid JSON
+  /upload_profile_photo:
+    post:
+      summary: Upload profile photo
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: File uploaded successfully
+        '400':
+          description: File is required / User not registered / Other errors
+  /change_alias:
+    patch:
+      summary: Change user alias
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                alias:
+                  type: string
+      responses:
+        '200':
+          description: Alias updated successfully
+        '400':
+          description: Alias already taken / Invalid JSON
+        '401':
+          description: User not registered
+  /send_friend_request:
+    post:
+      summary: Send a friend request
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+      responses:
+        '200':
+          description: Friend request sent successfully
+        '400':
+          description: Invalid JSON / Friend request already sent / Other errors
+        '404':
+          description: User not registered
+  /accept_friend_request:
+    post:
+      summary: Accept a friend request
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+      responses:
+        '200':
+          description: Friend request accepted successfully
+        '400':
+          description: Invalid JSON
+        '404':
+          description: User not registered / Friend request does not exist
+  /decline_friend_request:
+    post:
+      summary: Decline a friend request
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+      responses:
+        '200':
+          description: Friend request declined successfully
+        '400':
+          description: Invalid JSON
+        '404':
+          description: User not registered / Friend request does not exist
+  /friend_requests:
+    get:
+      summary: Get friend requests for authenticated user
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successfully retrieved friend requests
+        '404':
+          description: User not registered
+  /friends:
+    get:
+      summary: Get friends of authenticated user
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successfully retrieved friends
+        '404':
+          description: User not registered
+  /remove_friend:
+    post:
+      summary: Remove a friend
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+      responses:
+        '200':
+          description: Friend removed successfully
+        '400':
+          description: Users are not friends / Invalid JSON
+        '404':
+          description: User not registered / Friend not found
+  /add_match_history:
+    post:
+      summary: Add match history
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                opponent_1_jwt:
+                  type: string
+                opponent_2_jwt:
+                  type: string
+                opponent_1_points:
+                  type: integer
+                opponent_2_points:
+                  type: integer
+                match_type:
+                  type: string
+      responses:
+        '200':
+          description: Match history created, and user info updated
+        '400':
+          description: Invalid JSON / Other errors
+        '404':
+          description: User not registered
+  /exist_user:
+    get:
+      summary: Check if a user exists
+      parameters:
+        - name: username
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: User does not exist
+        '201':
+          description: User exists
+        '400':
+          description: Invalid JSON
+  /exist_alias:
+    get:
+      summary: Check if an alias exists
+      parameters:
+        - name: alias
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Alias does not exist
+        '201':
+          description: Alias exists
+        '400':
+          description: Invalid JSON
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

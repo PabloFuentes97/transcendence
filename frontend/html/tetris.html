@@ -1,0 +1,39 @@
+<div class="h-25 d-flex justify-content-center">
+    <div id="match-info" class="tc-game-info col-10">
+        
+        <div class="tc-game-scoreboard d-flex align-items-center justify-content-center">
+            <!-- LEFT PLAYER NAME (RECIBIR DEL WEBSOCKET)-->
+            <div class="tc-game-player col-5 text-nowrap" style="display: flex; justify-content: flex-end; overflow: hidden;">
+                <label id="left-player"></label>
+            </div>
+            <div class="d-flex justify-content-center" style="padding: 20px;">
+                <!-- SCORE (RECIBIR DEL WEBSOCKET)-->
+                <label id="left-score">0</label>
+                <label id="dash">-</label>
+                <label id="right-score">0</label>
+            </div>
+            <!-- RIGHT PLAYER NAME (RECIBIR DEL WEBSOCKET)-->
+            <div class="tc-game-player col-5 text-nowrap" style="display: flex; justify-content: flex-start; overflow: hidden;">
+                <label id="right-player"></label>
+            </div>
+        
+        </div>
+        <!-- TIME (RECIBIR DEL WEBSOCKET el INICIAL)-->
+        <div id="game-timer" class="tc-game-time tc-game-time-black-border d-flex justify-content-center">
+        </div>
+        <!-- GRAFFITI -->
+        <div  id="golden-graffiti" class="tc-invisible-text d-flex justify-content-center text-nowrap" style="line-height: 1.2;">
+            <label>GOLDEN<br>G&nbsp;&nbsp;&nbsp;AL</label>
+        </div>  
+        
+    </div>
+    <!-- COUNTDOWN (PONER FUNCIÓN EN JS + CUANDO DIGA EL WEBSOCKET)-->
+    <div id=countdown-text class="tc-game-start-countdown d-flex justify-content-center" style="display: none;"></div>
+</div>
+
+<div class="h-75 w-100 d-flex justify-content-center"  id="canvas" style="z-index: 2;">
+    <!-- style="object-fit: contain;" -->
+    
+    <!-- GOLDEN GOAL BOTTOM (PONER FUNCIÓN EN JS)-->
+    <!-- <div id="golden-goal" class="tc-game-golden-goal shiny text-nowrap">GOLDEN GOAL</div> -->
+</div>

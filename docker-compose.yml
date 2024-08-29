@@ -1,0 +1,85 @@
+version: "3.3"
+services:
+
+  nginx:
+    container_name: "nginx"
+    build: nginx
+    volumes:
+      - ./frontend:/usr/share/nginx/html
+      - profile_photos:/usr/share/nginx/html/profile_photos
+    ports:
+      - "4043:4043"
+    networks:
+      - app-net
+    depends_on:
+      - user_info
+      - auth_service
+    env_file:
+      - .env
+
+  user_info:
+    container_name: "user_info"
+    build: backend/apis/user_info
+    networks:
+      - app-net
+    volumes:
+      - profile_photos:/usr/src/app/profile_photos
+    env_file:
+      - .env
+    depends_on:
+      - my-postgres
+    restart:
+      on-failure
+  
+  auth_service:
+    container_name: "auth_service"
+    build: backend/apis/auth_service
+    networks:
+      - app-net
+    env_file:
+      - .env
+    depends_on:
+      - my-postgres
+    restart:
+      on-failure
+
+  my-postgres:
+    image: postgres:16-alpine
+    env_file:
+      - .env
+    container_name: "my-postgres"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - app-net
+    restart:
+      on-failure
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: on-failure
+    networks:
+      - app-net
+    command: ["redis-server", "--bind", "redis", "--port", "6379"]
+  
+  game:
+    container_name: game
+    build: backend/apis/game
+    env_file:
+      - .env
+    networks:
+      - app-net
+    restart: on-failure
+    depends_on:
+      - my-postgres
+
+
+volumes:
+  pgdata:
+
+  profile_photos:
+
+networks:
+  app-net:
+    driver: bridge

@@ -1,0 +1,19 @@
+<div class="w-100 h-100">
+    <div class="d-flex flex-row h-90 p-5" id="tournament-container">
+        <div class="tc-tournament-column d-flex justify-content-around align-items-center flex-column">
+            <div class="tc-tournament-player-container w-75 text-center ${result0}" id="tournament-player-container-0">${position0}</div>
+            <div class="tc-tournament-player-container w-75 text-center ${result1}" id="tournament-player-container-1">${position1}</div>
+            <div class="tc-tournament-player-container w-75 text-center ${result2}" id="tournament-player-container-2">${position2}</div>
+            <div class="tc-tournament-player-container w-75 text-center ${result3}" id="tournament-player-container-3">${position3}</div>
+        </div>
+        <div class="tc-tournament-column d-flex justify-content-around align-items-center flex-column">
+            <div class="tc-tournament-player-container w-75 text-center ${result4}" id="tournament-player-container-4">${finalist0}</div>
+            <div class="tc-tournament-player-container w-75 text-center ${result5}" id="tournament-player-container-5">${finalist1}</div>
+        </div>
+        <div class="tc-tournament-column d-flex justify-content-center align-items-center">
+            <div class="tc-tournament-player-container w-75 text-center tc-tournament-winner" id="tournament-player-container-6">${winner}</div>
+        </div>
+        <svg class="tc-tournament-lines"></svg>
+    </div>
+    <div class="d-flex w-100 justify-content-center h1" id="tournamentMessage">Waiting for players</div>
+</div>

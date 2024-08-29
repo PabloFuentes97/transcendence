@@ -1,0 +1,58 @@
+<div class="d-flex flex-row vh-100 col-12 justify-content-center">
+    <div class="d-flex col-8 my-auto flex-column tc-background tc-border p-2 tc-settings-panel">
+        <div class="h2 tc-settings-separator">Profile</div>
+        <div class="tc-background-secondary p-2">
+            <div>New alias:
+                <input class="ms-1" type="text" id="settings-alias" required maxlength="20" placeholder=""></input>
+                <span class="ms-2" id="settings-aliasCheck"></span>
+                <div class="my-1">This alias will not overwrite your username. (Don't forget it)</div>
+            </div>
+            <div class="mt-1">Choose a new profile picture:
+                <input class="ms-1" type="file" id="settings-imageInput" accept=".png, .jpeg, .jpg, .gif"></input>
+            </div>
+        </div>
+        <div class="h2 mt-3 tc-settings-separator" id="settingsSecurityTittle">Security</div>
+        <div class="tc-background-secondary p-2" id="settingsSecuritySection">
+            <div>Old password:
+                <input class="ms-2" type="password" id="settings-oldPassword" required maxlength="20"></input>
+                <span class="ms-2" id="settings-oldPasswordCheckIcon"></span>
+            </div>
+            <div class="mt-1">New password:
+                <input class="ms-2" type="password" id="settings-newPassword" required maxlength="20"></input>
+            </div>
+            <div class="mt-1">Repeat password:
+                <input class="ms-2" type="password" id="settings-newPasswordRepeated" required maxlength="20"></input>
+                <span class="ms-2" id="settings-passwordCheckIcon"></span>
+            </div>
+        </div>
+        <div class="h2 mt-3 tc-settings-separator" id="enableTwoFactorTitle">Two-Factor Authentication</div>
+        <div class="tc-background-secondary p-2" id="enableTwoFactorAuthSection">
+            <div>Scan this QR code with your authenticator app and enter the code to enable Two-Factor Authentication.
+            </div>
+            <div class="mt-1">
+                <canvas id="qrCodeContainer"></canvas>
+            </div>
+            <div class="mt-1">
+                <input class="" type="text" id="enableTwoFactorCode" placeholder="Enter 2FA Code"></input>
+                <button class="btn ms-2" id="enableTwoFactorButton">Enable</button>
+            </div>
+            <p id="failInfoEnable2FA"></p>
+        </div>
+        <div id="disableTwoFactorAuthSection" style="display: none;">
+            <div>To disable the Two-Factor Authentication in your account enter the code.</div>
+            <div class="mt-1">
+                <input class="ms-2" type="text" id="disableTwoFactorCode" placeholder="Enter 2FA Code"></input>
+                <button class="btn ms-2" id="disableTwoFactorButton">Disable</button>
+            </div>
+            <p id="failInfoDisable2FA"></p>
+        </div>
+        <div class="h2 mt-3 tc-settings-separator">Customize</div>
+        <div class="tc-background-secondary p-2">
+            <div class="d-flex flex-row align-items-center">Change theme:
+                <button type="btn" class="btn ms-2" id="settings-changeTheme">Light</button>
+            </div>
+        </div>
+        <div class="mt-2" id="settings-saveSettingsProblem" style="color: red"></div>
+        <button type="btn" class="btn mt-3" id="settings-saveSettingsButton">Save</button>
+    </div>
+</div>

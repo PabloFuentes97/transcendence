@@ -1,0 +1,84 @@
+	<!-- Title -->
+	<h1 class="display-2 tc-title">READY 2 PLAY?</h1>
+
+	<!-- General form -->
+	<form id="login-form">
+	
+		<!-- Enter with 42 (text) -->
+		<div class="d-flex flex-row align-items-center justify-content-center" style="padding-bottom:1.5rem;">
+		
+			<p class="lead fw-normal mb-0 me-3 tc-txt fs-3">Log in with</p>
+			<!-- 42 auth button -->
+			  <button id="loginWithIntra" type="button" class="btn btn-primary tc-btn"><img>42</button>
+		</div>
+	
+	
+		<!-- Enter your account (text) -->
+		<div class="divider d-flex align-items-center my-4">
+	
+			<p class="text-center fw-bold mx-3 mb-0 tc-txt fs-4">Or log in with your account</p>
+		</div>
+	
+	
+		<!-- Email¿?¿?¿?¿? input -->
+		<div data-mdb-input-init class="form-outline mb-2 fs-4">
+	
+			<input type="text" id="username" class="tc-input" placeholder="Username"  required maxlength="20"/>
+			<label class="form-label" for="username"></label>
+		</div>
+	
+	
+		<!-- Password input -->
+		<div data-mdb-input-init class="form-outline mb-2 fs-4" >
+	
+			<input type="password" id="password" class="tc-input" placeholder="Password" required maxlength="20"/>
+			<label class="form-label" for="password"></label>
+		</div>
+	
+	
+	
+	
+		 <!--
+		<div class="d-flex justify-content-between align-items-center">
+		  Checkbox
+		  <div class="form-check mb-0">
+			<input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+			<label class="form-check-label" for="form2Example3">
+			  Remember me
+			</label>
+		  </div>
+		  <a href="#!" class="text-body" id="forget">¿Olvidaste la contraseña?</a>
+		</div> -->
+	
+	
+		<!-- Login button div -->
+		<div class="d-flex flex-column align-items-center text-center text-lg-start mt-2">
+	
+	
+		<a>
+		  <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg tc-btn px-5"
+			id="logInButton">Log in</button>
+		</a>
+			<div id="app2" style="padding-top:2rem;"></div>
+	
+		  <p class="fs-3 text-center mt-2 pt-1 mb-0 tc-txt">Don't have an account? 
+			<span class="fw-bold tc-registration" id="registration" role='button'>Sign up</span></p>
+		</div>
+	</form>
+	
+	
+	
+	<!-- OTP Form -->
+	<form id="otp-form" style="display:none;"> 
+		<div class="form-outline mb-2">
+			<input type="text" id="otp" class="tc-input" placeholder="Enter OTP" />
+			<label class="form-label" for="otp"></label>
+		</div>
+		<div class="text-center text-lg-start mt-4 pt-2">
+			<button type="button" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;" id="verifyOtpButton">Verify OTP</button>
+		</div>
+	</form>
+	
+	<div>
+		<p class="fs-3 tc-fail" id="failInfo"></p>
+	</div>
